@@ -31,6 +31,19 @@ public class Main
 		obj.setCategory(category);
 		obj.DisplayItem(posts);
 	}
+        public  User_db Signup()
+    	{
+    		User_db obj=new User_db();
+    		System.out.println("Enter phone number");
+    		obj.PhoneNumber=input.nextInt();
+    		System.out.println("Enter password");
+    		obj.Password=input.nextInt();
+    		System.out.println("Enter e-mail");
+    		obj.email=input.next();
+    		System.out.println("Enter address");
+    		obj.address=input.next();
+    		return obj;
+    	}
         public void Login()
     	{
     		System.out.println("Login FORM");
@@ -96,8 +109,9 @@ public class Main
 		}
 		case 2:
 		{
-			//add your function here
-			break;
+			User_db obj=new User_db();
+			obj=form.Signup();
+			users.add(obj);break;
 		}
 		default:
 			System.out.println("Invalid!!!");
