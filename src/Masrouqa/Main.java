@@ -31,6 +31,21 @@ public class Main
 		obj.setCategory(category);
 		obj.DisplayItem(posts);
 	}
+        public void Login()
+    	{
+    		System.out.println("Login FORM");
+    		System.out.println("----------------------------");
+    		Login log=new Login();
+    		User_db obj=new User_db();
+    		obj=log.EnterPhoneNumber();
+    		for(int i=0;i<users.size();i++)
+    		{
+    		if(users.get(i).Password!=obj.Password||users.get(i).PhoneNumber!=obj.PhoneNumber)
+    		{
+    		exist=log.VerifyForException();	
+    		}
+    		}
+    	}
 	public static void main(String[] args)
 	{
 		Scanner input=new Scanner(System.in);
@@ -46,7 +61,37 @@ public class Main
 		{
 		case 1:
 		{
-			//add your function here
+		if(users.size()==0)
+		{System.out.println("Not Signed up Yet");break;}
+		Main form = new Main();
+		form.Login();
+		if(exist==1)
+			break;
+		while(true)
+		{
+			int ch;
+			System.out.println("enter the function:");
+			System.out.println("1-Search 2-Post 3-Log out");
+			ch=input.nextInt();
+			switch(ch)
+			{
+			case 1:
+			{
+			form.Search();break;
+			}
+			case 2:
+			{
+				Post_db obj=new Post_db();
+				obj=form.Post();
+				posts.add(obj);break;
+			}
+			case 3:
+				flag=1;break;
+			}
+			if(flag==1)
+				break;
+		}
+		if(flag==1)
 			break;
 		}
 		case 2:
