@@ -7,7 +7,19 @@ public class Main
 	public static ArrayList <User_db>users=new ArrayList();
 	public static ArrayList <Post_db>posts=new ArrayList();
 	Scanner input=new Scanner(System.in);
-	//Ezz & amr add your function here
+	public Post_db Post()
+    {
+        System.out.println("Post Form");
+        System.out.println("------------------------");
+        Post_db obj=new Post_db();
+        System.out.println("enter the Category:");
+        obj.Category=input.next();
+        System.out.println("enter the ID:");
+        obj.id=input.nextInt();
+        System.out.println("enter the description:");
+        obj.description=input.next();
+        return obj;
+    }
         public void Search()
 	{
 		System.out.println("Search Form");
