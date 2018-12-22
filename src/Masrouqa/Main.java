@@ -8,6 +8,17 @@ public class Main
 	public static ArrayList <Post_db>posts=new ArrayList();
 	Scanner input=new Scanner(System.in);
 	//Ezz & amr add your function here
+        public void Search()
+	{
+		System.out.println("Search Form");
+		System.out.println("----------------------");
+		Search obj=new Search();
+		String category;
+		System.out.println("enter the Category:");
+		category=input.next();
+		obj.setCategory(category);
+		obj.DisplayItem(posts);
+	}
 	public static void main(String[] args)
 	{
 		Scanner input=new Scanner(System.in);
