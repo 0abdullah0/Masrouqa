@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Login {
 	//Bounadry
-	int PhoneNumber;
+    int PhoneNumber;
 	int Password;
 	Scanner input=new Scanner(System.in);
 	public User_db EnterPhoneNumber()
