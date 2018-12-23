@@ -7,16 +7,15 @@ public class Main
 	public static ArrayList <User_db>users=new ArrayList();
 	public static ArrayList <Post_db>posts=new ArrayList();
 	Scanner input=new Scanner(System.in);
-	public Post_db Post()
+	public Post_db Post(User_db uobj)
     {
         System.out.println("Post Form");
         System.out.println("------------------------");
         Post_db obj=new Post_db();
         System.out.println("enter the Category:");
         obj.Category=input.next();
-        //System.out.println("enter the ID:");
         obj.id=posts.size()+1;
-        //System.out.println(obj.id);
+        obj.numpost=uobj.PhoneNumber;
         System.out.println("enter the description:");
         obj.description=input.next();
         return obj;
@@ -45,7 +44,7 @@ public class Main
     		obj.address=input.next();
     		return obj;
     	}
-        public void Login()
+        public User_db Login()
     	{
     		System.out.println("Login FORM");
     		System.out.println("----------------------------");
@@ -54,11 +53,16 @@ public class Main
     		obj=log.EnterPhoneNumber();
     		for(int i=0;i<users.size();i++)
     		{
-    		if(users.get(i).Password!=obj.Password||users.get(i).PhoneNumber!=obj.PhoneNumber)
+    		if((users.get(i).Password!=obj.Password||users.get(i).PhoneNumber!=obj.PhoneNumber)&&(i+1==users.size()))
     		{
     		exist=log.VerifyForException();	
     		}
+    		if((users.get(i).Password==obj.Password||users.get(i).PhoneNumber==obj.PhoneNumber))
+    		{
+    			break;
     		}
+    		}
+    		return obj;
     	}
 	public static void main(String[] args)
 	{
@@ -78,7 +82,8 @@ public class Main
 		if(users.size()==0)
 		{System.out.println("Not Signed up Yet");break;}
 		Main form = new Main();
-		form.Login();
+		User_db uobj=new User_db();
+		uobj=form.Login();
 		if(exist==1)
 			break;
 		while(true)
@@ -96,7 +101,7 @@ public class Main
 			case 2:
 			{
 				Post_db obj=new Post_db();
-				obj=form.Post();
+				obj=form.Post(uobj);
 				posts.add(obj);break;
 			}
 			case 3:
@@ -107,7 +112,6 @@ public class Main
 				System.out.println("Invalid!!!");break;
 				
 			}
-		
 			if(flag==1)
 				break;
 		}
