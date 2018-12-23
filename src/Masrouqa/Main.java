@@ -14,8 +14,9 @@ public class Main
         Post_db obj=new Post_db();
         System.out.println("enter the Category:");
         obj.Category=input.next();
-        System.out.println("enter the ID:");
-        obj.id=input.nextInt();
+        //System.out.println("enter the ID:");
+        obj.id=posts.size()+1;
+        //System.out.println(obj.id);
         System.out.println("enter the description:");
         obj.description=input.next();
         return obj;
@@ -99,8 +100,14 @@ public class Main
 				posts.add(obj);break;
 			}
 			case 3:
+			{
 				flag=1;break;
 			}
+			default:
+				System.out.println("Invalid!!!");break;
+				
+			}
+		
 			if(flag==1)
 				break;
 		}
@@ -110,6 +117,7 @@ public class Main
 		case 2:
 		{
 			User_db obj=new User_db();
+			Main form = new Main();
 			obj=form.Signup();
 			users.add(obj);break;
 		}
