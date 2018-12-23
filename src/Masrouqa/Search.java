@@ -11,15 +11,14 @@ public class Search {
 		System.out.println("------------------");
 		for(int i=0;i<posts.size();i++)
 		{
-//			if(Category.equals(posts.get(i).Category))
-//				System.out.println(""+posts.get(i).obj.PhoneNumber);
 			if(Category.equals(posts.get(i).Category))
+			{
 				System.out.println("Post's ID:"+posts.get(i).id);
-			if(Category.equals(posts.get(i).Category))
 				System.out.println("Post's Descibtion:"+posts.get(i).description);
-			if(Category.equals(posts.get(i).Category))
 				System.out.println("Post's Category:"+posts.get(i).Category);
-			
+				System.out.println("Post's Owner:"+posts.get(i).numpost);
+				System.out.println("#####################");
+			}
 			
 		}
 	}
